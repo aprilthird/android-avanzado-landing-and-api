@@ -1,74 +1,386 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FDNE.LITE.WEB.LANDING</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="FDNE LITE pagina introductoria para descargar la aplicacion">
+    <meta name="keywords" content="FDNE, Federación Deportiva Nacional Ecuestre, Landing page, App, Mobile, Aplicación, Descargar">
+    <meta name="author" content="Luis Jeffrey Rojas Montes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <!-- SITE TITLE -->
+    <title>Landing Page | FDNE</title>
+
+    <!-- =========================
+          FAV AND TOUCH ICONS
+    ============================== -->
+    <link rel="icon" href="http://demo.templateocean.com/premium/template/kane/files/images/favicon.ico">
+    <link rel="apple-touch-icon" href="@Url.Content("~/images/apple-touch-icon.png")">
+    <link rel="apple-touch-icon" sizes="72x72" href="@Url.Content("~/images/apple-touch-icon-72x72.png")">
+    <link rel="apple-touch-icon" sizes="114x114" href="@Url.Content("~/images/apple-touch-icon-114x114.png")">
+
+    <!-- =========================
+         STYLESHEETS
+    ============================== -->
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/bootstrap.min.css")">
+
+    <!-- FONT ICONS -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/elegant-icons/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/app-icons/styles.css")">
+    <!--[if lte IE 7]><script src="lte-ie7.js"></script><![endif]-->
+    <!-- WEB FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+
+    <!-- CAROUSEL AND LIGHTBOX -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/owl.theme.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/owl.carousel.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/nivo-lightbox.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/nivo_themes/default/default.css")">
+
+    <!-- ANIMATIONS -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/animate.min.css")">
+
+    <!-- CUSTOM STYLESHEETS -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/styles.css")">
+
+    <!-- COLORS | CURRENTLY USED DIFFERENTLY TO SWITCH FOR DEMO. IN ORIGINAL FILE ALL COLORS LINK IS COMMENTED EXCEPT BLUE -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/colors/red.css")" title="red">
+    @*<link rel="stylesheet" href="css/colors/blue.css" title="blue">
+        <link rel="alternate stylesheet" href="css/colors/green.css" title="green">
+        <link rel="alternate stylesheet" href="css/colors/orange.css" title="orange">
+        <link rel="alternate stylesheet" href="css/colors/purple.css" title="purple">
+        <link rel="alternate stylesheet" href="css/colors/slate.css" title="slate">
+        <link rel="alternate stylesheet" href="css/colors/yellow.css" title="yellow">
+        <link rel="alternate stylesheet" href="css/colors/blue-munsell.css" title="blue-munsell">*@
+
+    <!-- RESPONSIVE FIXES -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/responsive.css")">
+
+    <!-- STYLE SWITCH STYLESHEET ONLY FOR DEMO -->
+    @*<link rel="stylesheet" href="demo/demo.css">*@
+
+    <!--[if lt IE 9]>
+                <script src="js/html5shiv.js"></script>
+                <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <!-- JQUERY -->
+    <script
+        src="https://code.jquery.com/jquery-1.9.1.min.js"
+        integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
+        crossorigin="anonymous"></script>
+    @*<script src="../../../../../../../ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+
 </head>
+
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FDNE.LITE.WEB.LANDING</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - FDNE.LITE.WEB.LANDING</p>
-        </footer>
+    <!-- =========================
+         PRE LOADER
+    ============================== -->
+    <div class="preloader">
+        <div class="status">&nbsp;</div>
     </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
+    <!-- =========================
+         HEADER
+    ============================== -->
+    <header class="header" id="home">
 
-    @RenderSection("Scripts", required: false)
+        <!-- COLOR OVER IMAGE -->
+        <div class="color-overlay">
+            <!-- To make header full screen. Use .full-screen class with color overlay. Example: <div class="color-overlay full-screen">  -->
+            <!-- STICKY NAVIGATION -->
+            <div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation">
+                <div class="container">
+                    <div class="navbar-header">
+
+                        <!-- LOGO ON STICKY NAV BAR -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kane-navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <a class="navbar-brand" href="#"><img src="@Url.Content("~/images/logo.png")" alt=""></a>
+
+                    </div>
+
+                    <!-- NAVIGATION LINKS -->
+                    <div class="navbar-collapse collapse" id="kane-navigation">
+                        <ul class="nav navbar-nav navbar-right main-navigation">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#brief1">Why Us?</a></li>
+                            <li><a href="#brief2">Desicribe</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#screenshot-section">Screenshots</a></li>
+                            <li><a href="#download">Download</a></li>
+                        </ul>
+                    </div>
+                </div> <!-- /END CONTAINER -->
+            </div> <!-- /END STICKY NAVIGATION -->
+            <!-- CONTAINER -->
+            <div class="container">
+
+                <!-- ONLY LOGO ON HEADER -->
+                <div class="only-logo">
+                    <div class="navbar">
+                        <div class="navbar-header">
+                            <img src="@Url.Content("~/images/logo.png")" alt="">
+                        </div>
+                    </div>
+                </div> <!-- /END ONLY LOGO ON HEADER -->
+
+
+                <div class="row home-contents">
+                    <div class="col-md-6 col-sm-6">
+
+                        <!-- HEADING AND BUTTONS -->
+                        <div class="intro-section">
+
+                            <!-- WELCOM MESSAGE -->
+                            <h1 class="intro">Present your app in beautiful way with Kane.</h1>
+                            <h5>Available on App Store and Play Store</h5>
+
+                            <!-- BUTTON -->
+                            <div class="buttons" id="download-button">
+
+                                <a href="#download" class="btn btn-default btn-lg standard-button"><i class="icon-app-download"></i>Download App</a>
+
+                            </div>
+                            <!-- /END BUTTONS -->
+
+                        </div>
+                        <!-- /END HEADNING AND BUTTONS -->
+
+                    </div>
+
+
+                    <div class="col-md-6 col-sm-6 hidden-xs">
+
+                        <!-- PHONE IMAGE WILL BE HIDDEN IN TABLET PORTRAIT AND MOBILE-->
+                        <div class="phone-image">
+                            <img src="@Url.Content("~/images/2-iphone-right.png")" class="img-responsive" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /END ROW -->
+
+            </div>
+            <!-- /END CONTAINER -->
+        </div>
+        <!-- /END COLOR OVERLAY -->
+    </header>
+    <!-- /END HEADER -->
+    <!-- =========================
+         FEATURES
+    ============================== -->
+    
+    @RenderBody()
+
+    <!-- =========================
+         FOOTER
+    ============================== -->
+    <footer>
+
+        <div class="container">
+
+            <div class="contact-box wow rotateIn animated" data-wow-offset="10" data-wow-duration="1.5s">
+
+                <!-- CONTACT BUTTON TO EXPAND OR COLLAPSE FORM -->
+
+                <a class="btn contact-button expand-form expanded"><i class="icon_mail_alt"></i></a>
+
+                <!-- EXPANDED CONTACT FORM -->
+                <div class="row expanded-contact-form">
+
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <!-- FORM -->
+                        <form class="contact-form" id="contact" role="form">
+
+                            <!-- IF MAIL SENT SUCCESSFULLY -->
+                            <h4 class="success">
+                                <i class="icon_check"></i> Your message has been sent successfully.
+                            </h4>
+
+                            <!-- IF MAIL SENDING UNSUCCESSFULL -->
+                            <h4 class="error">
+                                <i class="icon_error-circle_alt"></i> E-mail must be valid and message must be longer than 1 character.
+                            </h4>
+
+                            <div class="col-md-6">
+                                <input class="form-control input-box" id="name" type="text" name="name" placeholder="Your Name">
+                            </div>
+
+                            <div class="col-md-6">
+                                <input class="form-control input-box" id="email" type="email" name="email" placeholder="Your Email">
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control input-box" id="subject" type="text" name="subject" placeholder="Subject">
+                                <textarea class="form-control textarea-box" id="message" rows="8" placeholder="Message"></textarea>
+                            </div>
+
+                            <button class="btn btn-primary standard-button2 ladda-button" type="submit" id="submit" name="submit" data-style="expand-left">Send Message</button>
+
+                        </form>
+                        <!-- /END FORM -->
+
+                    </div>
+
+                </div>
+                <!-- /END EXPANDED CONTACT FORM -->
+
+            </div>
+            <!-- /END CONTACT BOX -->
+            <!-- LOGO -->
+            <img src="@Url.Content("~/images/logo.png")" alt="LOGO" class="responsive-img">
+
+            <!-- SOCIAL ICONS -->
+            <ul class="social-icons">
+                <li><a href="#"><i class="social_facebook_square"></i></a></li>
+                <li><a href="#"><i class="social_twitter_square"></i></a></li>
+                <li><a href="#"><i class="social_pinterest_square"></i></a></li>
+                <li><a href="#"><i class="social_googleplus_square"></i></a></li>
+                <li><a href="#"><i class="social_instagram_square"></i></a></li>
+                <li><a href="#"><i class="social_dribbble_square"></i></a></li>
+                <li><a href="#"><i class="social_flickr_square"></i></a></li>
+            </ul>
+
+            <!-- COPYRIGHT TEXT -->
+            <p class="copyright">
+                ©2014 Kane, All Rights Reserved
+            </p>
+
+        </div>
+        <!-- /END CONTAINER -->
+
+    </footer>
+    <!-- /END FOOTER -->
+    <!-- =========================
+         SCRIPTS
+    ============================== -->
+
+    <script src="@Url.Content("~/assets/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/smoothscroll.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.scrollTo.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.localScroll.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/owl.carousel.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/nivo-lightbox.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/simple-expand.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/wow.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.stellar.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/retina-1.1.0.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/matchMedia.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.backgroundvideo.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.nav.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.ajaxchimp.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.fitvids.js")"></script>
+    <script src="@Url.Content("~/assets/js/custom.js")"></script>
+
+    <!-- =========================================================
+         STYLE SWITCHER | ONLY FOR DEMO NOT INCLUDED IN MAIN FILES
+    ============================================================== -->
+    @*<script type="text/javascript" src="demo/styleswitcher.js"></script>
+    <script type="text/javascript" src="demo/demo.js"></script>
+    <div class="kane-style-switch" id="switch-style">
+        <a id="toggle-switcher" class="switch-button icon_tools"></a>
+        <div class="switched-options">
+            <div class="config-title">
+                Layout Style:
+            </div>
+            <ul>
+                <li><a href="http://demo.templateocean.com/premium/template/kane/layout-style-one/dark/video-bg/index.html">Style One</a></li>
+                <li class="active"><a href="#">Style Two</a></li>
+            </ul>
+
+            <div class="config-title">
+                Layout Color:
+            </div>
+            <ul>
+                <li><a href="http://demo.templateocean.com/premium/template/kane/layout-style-two/light/video-bg/index.html">Light</a></li>
+                <li class="active"><a href="#">Dark</a></li>
+            </ul>
+            <div class="config-title">
+                Homepage style:
+            </div>
+            <ul>
+                <li><a href="http://demo.templateocean.com/premium/template/kane/layout-style-two/dark/image-bg/index.html">IMAGE BG</a></li>
+                <li><a href="http://demo.templateocean.com/premium/template/kane/layout-style-two/dark/transparent-color-bg/index.html">TRANSPARENT COLOR BG</a></li>
+                <li><a href="http://demo.templateocean.com/premium/template/kane/layout-style-two/dark/solid-color/index.html">SOLID COLOR BG</a></li>
+                <li class="active"><a href="#">VIDEO BG</a></li>
+                <li class="p">
+                    (NOTE: BG = Background)
+                </li>
+            </ul>
+            <div class="config-title">
+                Colors :
+            </div>
+            <ul class="styles">
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('blue'); return false;" title="Blue">
+                        <div class="blue">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('purple'); return false;" title="Purple">
+                        <div class="purple">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('blue-munsell'); return false;" title="Blue Munsell">
+                        <div class="blue-munsell">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('orange'); return false;" title="Orange">
+                        <div class="orange">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('slate'); return false;" title="Slate">
+                        <div class="slate">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('green'); return false;" title="Green">
+                        <div class="green">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('yellow'); return false;" title="Yellow">
+                        <div class="yellow">
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('red'); return false;" title="Red">
+                        <div class="red">
+                        </div>
+                    </a>
+                </li>
+                <li class="p">
+                    ( NOTE: Pre Defined Colors. You can change colors very easily )
+                </li>
+            </ul>
+        </div>
+    </div>*@
+
 </body>
 </html>
