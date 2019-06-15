@@ -99,7 +99,7 @@ if (matchMedia('(min-width: 640px)').matches) {
       "autoplay": true,
       "loop": true,
       "path": "/video/",
-      "filename": "video",
+      "filename": "loop1440",
       "types": ["mp4","ogg","webm"]
     });
   });
