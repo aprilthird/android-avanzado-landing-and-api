@@ -167,6 +167,30 @@ namespace FDNE.LITE.REPOSITORY.Manager
             }
         }
 
+        IRepository<ApplicationUser> IUnitOfWork.UserRepository => throw new NotImplementedException();
+
+        IRepository<Binomial> IUnitOfWork.BinomialRepository => throw new NotImplementedException();
+
+        IRepository<Category> IUnitOfWork.CategoryRepository => throw new NotImplementedException();
+
+        IRepository<Club> IUnitOfWork.ClubRepository => throw new NotImplementedException();
+
+        IRepository<Contest> IUnitOfWork.ContestRepository => throw new NotImplementedException();
+
+        IRepository<Discipline> IUnitOfWork.DisciplineRepository => throw new NotImplementedException();
+
+        IRepository<Horse> IUnitOfWork.HorseRepository => throw new NotImplementedException();
+
+        IRepository<News> IUnitOfWork.NewsRepository => throw new NotImplementedException();
+
+        IRepository<Ranking> IUnitOfWork.RankingRepository => throw new NotImplementedException();
+
+        IRepository<Result> IUnitOfWork.ResultRepository => throw new NotImplementedException();
+
+        IRepository<IdentityRole> IUnitOfWork.RoleRepository => throw new NotImplementedException();
+
+        IRepository<Season> IUnitOfWork.SeasonRepository => throw new NotImplementedException();
+
         public void Dispose()
         {
             _context.Dispose();
@@ -175,6 +199,5 @@ namespace FDNE.LITE.REPOSITORY.Manager
         public void Save() => _context.SaveChanges();
 
         public Task SaveAsync() => _context.SaveChangesAsync();
-        
     }
 }
